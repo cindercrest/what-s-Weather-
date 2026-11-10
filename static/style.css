@@ -1,0 +1,191 @@
+/* ==========================================================================
+   1. MODERN RESET & VARIABLES
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Slick Dark Palette */
+    --bg-gradient: linear-gradient(135deg, #0f111a 0%, #151824 100%);
+    --panel-bg: rgba(30, 34, 50, 0.4);
+    --panel-border: rgba(255, 255, 255, 0.08);
+    
+    /* Typography Colors */
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    
+    /* Weather State Accent Glows */
+    --accent-clear: #ff9f43;
+    --accent-rain: #00d2d3;
+    --accent-cloudy: #54a0ff;
+    --accent-glow: rgba(84, 160, 255, 0.2);
+    
+    /* Layout Constants */
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. MAIN APPLICATION CONTAINER (Glassmorphism Frame)
+   ========================================================================== */
+.weather-app {
+    width: 100%;
+    max-width: 480px;
+    background: var(--panel-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--panel-border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+                0 0 100px var(--accent-glow);
+    transition: var(--transition-smooth);
+}
+
+/* ==========================================================================
+   3. INTERACTIVE SEARCH BAR
+   ========================================================================== */
+.search-container {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.search-input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--panel-border);
+    padding: 14px 20px;
+    border-radius: var(--radius-md);
+    color: var(--text-main);
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition-smooth);
+}
+
+.search-input:focus {
+    border-color: var(--accent-cloudy);
+    box-shadow: 0 0 15px rgba(84, 160, 255, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.search-btn {
+    background: var(--text-main);
+    color: #0f111a;
+    border: none;
+    padding: 0 24px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.search-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.search-btn:active {
+    transform: translateY(1px);
+}
+
+/* ==========================================================================
+   4. HERO WEATHER DISPLAY (Current Weather)
+   ========================================================================== */
+.weather-hero {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.location-name {
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+}
+
+.weather-condition {
+    font-size: 1rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+}
+
+/* Big Hero Temperature Display */
+.temp-display {
+    font-size: 5.5rem;
+    font-weight: 700;
+    letter-spacing: -2px;
+    margin: 16px 0;
+    line-height: 1;
+    position: relative;
+    display: inline-block;
+}
+
+.temp-unit {
+    font-size: 2.5rem;
+    font-weight: 300;
+    position: absolute;
+    top: 5px;
+    right: -30px;
+    color: var(--accent-cloudy);
+}
+
+/* ==========================================================================
+   5. WEATHER DETAILS GRID (Metrics Showcase)
+   ========================================================================== */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.metric-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: var(--transition-smooth);
+}
+
+.metric-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.metric-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.metric-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-main);
+}

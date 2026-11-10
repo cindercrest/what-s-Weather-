@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's Weather?</title>
+    <link href="{{url_for('static',filename='style.css')}}" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="weather-app">
+        
+
+        <h1 class="location-name" style="text-align: center; margin-bottom: 24px;">What's Weather?</h1>
+        
+    
+        <form action="/weather" method="GET" class="search-container">
+            <input type="text" name="city" id="city" class="search-input" placeholder="CITY ?" required />
+            <button type="submit" class="search-btn">CHECK</button>
+        </form>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} Weather</title>
+    <link href="{{url_for('static',filename='style.css')}}" rel="stylesheet" />
+</head>
+<body>
+    <div class="weather-app">
+        
+        <div class="weather-hero">
+            <h1 class="location-name">{{ title }}</h1>
+            <p class="weather-condition">{{ status }}</p>
+            <div class="temp-display">
+                {{ temp }}<span class="temp-unit">&deg;C</span>
+            </div>
+        </div>
+
+        <div class="metrics-grid" style="margin-bottom: 32px;">
+            <div class="metric-card">
+                <span class="metric-label">Feels Like</span>
+                <span class="metric-value">{{ feels_like }}&deg;C</span>
+            </div>
+        </div>
+
+        <form action="/weather" method="GET" class="search-container">
+            <input type="text" name="city" id="city" class="search-input" placeholder="CITY ?" required />
+            <button type="submit" class="search-btn">CHECK</button>
+        </form>
+
+    </div>
+</body>
+</html>
