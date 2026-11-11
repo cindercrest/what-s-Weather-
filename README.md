@@ -74,7 +74,7 @@ The application needs an API key to request weather data. Create an account at [
 Create a `.env` file in the project root:
 
 ```env
-OPENWEATHER_API_KEY=your_api_key_here
+API_KEY=your_api_key_here
 ```
 
 Make sure the variable name matches the one read by `weather.py`. If the code uses a different name, use that name in `.env` instead. Keep the key private and do not commit `.env` to Git.
